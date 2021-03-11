@@ -1,0 +1,28 @@
+# mysql -u root -p
+
+# Comandos Sqoop para listar bancos de dados no MySQL
+
+sqoop list-databases --connect jdbc:mysql://localhost:3306/ --username root -P
+
+sqoop list-databases --connect jdbc:mysql://localhost:3306/?serverTimezone=UTC --username root -P
+
+
+# Comando Sqoop para importar dados do MySQL para o HDFS
+# import <conector JDBC - string de conenexao>
+sqoop import --connect jdbc:mysql://localhost:3306/teste --username root --password Dsahadoop@1 --table aluno --m 1
+
+
+# Ver arquivo no HDFS 
+hdfs dfs -ls /user/hadoop
+
+# pegar arquivo
+hdfs dfs -get nome_arquivo
+
+
+# Iniciar HDFS e YARN
+start-dfs.sh
+start-yarn.sh
+
+# Parar o HDFS e YARN
+stop-dfs.sh
+stop-yarn.sh
